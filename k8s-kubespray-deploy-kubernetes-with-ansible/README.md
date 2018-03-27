@@ -32,20 +32,77 @@ pip install ansible netaddr
 # netaddr is required by Kubespray
 ```
 
-# Kubespay
+# Let's get started
 
-Clone Kubespray
 ```
 clone https://github.com/kubernetes-incubator/kubespray.git
-```
 
 cd kubespray
-
-### Vagrant up VMs
-
 vagrant up
+```
 
-That's it!
+That's it! 
+
+This gonna take a while. Let's get to some details.
+
+### Virtualbox
+
+Install [virtualbox 5.1+](https://www.virtualbox.org/wiki/Downloads).
+
+Disadvantage about vbox GUI:
+
+1. Clicking is time-consuming and engineers are lazy. 
+2. Bad for automation. 
+3. Lack of Scalibility
+4. Manual operation could cause mistakes.
+
+A good practice is to Write shell script with VBoxManage, the client of virtualbox
+
+Or even better, use Vagrant
+ 
+### Vagrant
+
+[vagrant 2.0.x+](https://www.vagrantup.com/downloads.html)
+
+Create you VMs with (ruby based) script. 
+
+Bring VMs up & down within only one command
+
+Check the Vagrantfile
+
+### Ansible playbook
+
+Ansible is a IT automation tools
+
+Basically, ansible playbook ssh and execute bash command on servers.
+
+1. Reduce manual efforts. Deliver and deploy faster
+2. Install K8s components to each servers and check components status on each step
+3. Come with lots of handy tools (like native array supports)
+4. Automation is everything
+
+### Kubespay
+
+Deploy k8s with ansible-playbook
+
+Available on AWS, GCE, or baremetal
+
+High Available cluster
+
+Generate inventory file with inventory.py
+```
+cp -rfp inventory/sample inventory/mycluster
+
+declare -a IPS=(10.10.1.3 10.10.1.4 10.10.1.5)
+CONFIG_FILE=inventory/mycluster/hosts.ini python3 contrib/inventory_builder/inventory.py ${IPS[@]}
+```
+
+(Optional) Change parameters
+
+deploy
+```
+ansible-playbook -i inventory/myCluster/hosts.ini cluster.yml
+```
 
 ### Kubectl
 
@@ -55,15 +112,13 @@ kubectl config use-context
 kubectl get po
 ```
 
-# Get to the details
+### Destroy
 
-vagrant 
-
-virtualbox vm
-
-generate inventory
-
-ansible-playbook
+Remember to suspend / destroy VMs 
+```
+vagrant suspend
+vagrant destroy
+```
 
 # More about Kubernetes
 
