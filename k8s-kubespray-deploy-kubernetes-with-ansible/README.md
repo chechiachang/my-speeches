@@ -27,7 +27,9 @@ apt-add-repository ppa:ansible/ansible \
   && pip install netaddr
 
 # Mac
-pip install ansible netaddr
+pip install ansible
+
+port install py27-netaddr
 
 # netaddr is required by Kubespray
 ```
@@ -136,3 +138,5 @@ Scalibility
 
 # End
 
+
+VBoxManage list vms
