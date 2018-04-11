@@ -19,30 +19,31 @@ chechiachang999@gmail.com
 您的暱稱？*
 您知道的，就是行走江湖、悠遊社群、網路與開發領域的大大之名
 
-
 David Chang
 David Chang 嚮往 Kubernetes Summit 的哪種舞台？*
 想要一同推廣技術應用，或者有一路走來的心路經歷要跟大家分享？
 40分鐘演說（講酬 $3,600，含全日進場） - 詳細分享技術應用或開發經驗。A
-40分鐘演說（講酬 $3,600，含全日進場） - 詳細分享技術應用或開發經驗。
- 25分鐘演說（講酬$2,500，含全日入場） - 焦點技術專題或小型功能演示。B
-25分鐘演說（講酬$2,500，含全日入場） - 焦點技術專題或小型功能演示。
- 1日Workshop實戰（講酬$，含全日進場）- 開課時間將安排於研討會前1-2週C
-1日Workshop實戰（講酬$，含全日進場）- 開課時間將安排於研討會前1-2週
 
 David Chang的技術演說題目是？*
 放在議程表上，先聲奪人、引起聽眾興趣！
+Deploy High Availability Kubernetes Cluster On Cloud 
 
 聽懂David Chang演說內容的難易度？
-（如果是1～2，那對於本次活動就太淺囉）*
+4
 
 演說內容與概要？*
-演說題目可以大膽、可以懸疑，但總有疑惑需要進一步的解釋。麻煩詳細分享預定的演說大綱，以及提示將探討的內容，讓我們可以跟您腦中的藍圖共鳴。
+
+本次演講聚焦Kubernetes 的部署，透過一步步的步驟解說，幫助聽眾了解Kubernetes 的架構與元件。另外，也分享開發過程中可能的困難，提供聽眾們參考。
+
+1. 簡述 Kubernetes 的元件與部署
+2. 部署 High Availibility Kubernetes cluster
+3. 使用 Kubespray 快速部署
 
 希望帶給聽眾什麼樣的收獲？*
 預期聽眾可以在你的演說中獲得什麼？
-像是經驗值大幅成長、令人驚豔的應用案例...等等。
 
+1. 了解Kubernetes Master 節點的結構與元件
+2. 能夠部署功能完整的 Kubernetes Cluster
  
 要新增段落，請同時按下 SHIFT 和 ENTER 鍵
 7
@@ -50,21 +51,6 @@ David Chang的技術演說題目是？*
 展現實力的最直接方式，如果還沒準備好，也可以跳過無妨
 
 David Chang先前曾在哪些場合分享演說過嗎？
-您可以直接分享活動網址或者填入活動名稱：如果沒有，請跳過此題
-
-*投稿項目 
-*個人簡介
-後端軟體工程師，系統管理員與DevOps，為Kubernetes開源專案的源碼貢獻者，也是台北DS/OS社群籌辦人。
-
-*專業經歷
-Linkernetwork Engineer / Meetup DC/OS Taipei organizer / Kubernetes contributor 
- 
-*演講經驗 
-曾在那些國際會議演講? 演講主題為何?
 SDN x Cloud Native Meetup: Kubernetes Storage and GlusterFS
- 
-*聯絡人姓名 
-張哲嘉
-*聯絡人email 
-chechiachang999@gmail.com
+2018 iThome Cloud & Edge Summit Featured Speech: Manage and Schedule GPU Computing Tasks on Kubernetes
 
