@@ -1,9 +1,14 @@
 Kubernetes Network
 ===
 
+Build our network service from Pod step by step
+
 [kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 [Flannel](https://github.com/coreos/flannel)
+
+# Docker 
+Docker uses host-private networking, so containers can talk to other containers only if they are on the same machine
 
 # Node
 - Has IP before kubernetes cluster
@@ -26,9 +31,14 @@ a pod with IP 1.2.3.4 in the namespace default with a DNS name of cluster.local 
 A Kubernetes Service is an abstraction which defines a logical set of Pods and a policy by which to access them - sometimes called a micro-service.
 - label selector 
 - service.dns -> Pod(s) with label
--  assigned an IP address, cluster IP. Cluster IP setup by kube-proxy and load balance to Pod. It is not a actual IP on any device.
+- assigned an IP address, cluster IP. Cluster IP setup by kube-proxy and load balance to Pod. It is not a actual IP on any device.
+
+Unlike Pod IP addresses, which actually route to a fixed destination, Service IPs are not actually answered by a single host. Instead, we use iptables (packet processing logic in Linux) to define virtual IP addresses 
 
 my-svc.my-namespace.svc.cluster.local
+
+# Access Pod
+https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/
 
 ### Type of Service
 - ClusterIP: Exposes the service on a cluster-internal IP. Choosing this value makes the service only reachable from within the cluster. This is the default ServiceType.
@@ -60,3 +70,13 @@ DNS
 
 kube-dns 
 https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
+
+# Debug
+
+Enjoy
+
+iptables in pod
+iptables in node - unlikely. but it happens
+
+busybox inside cluster and ping/telnet
+diff your error yaml with a working yaml set
