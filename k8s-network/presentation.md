@@ -11,6 +11,8 @@ From docker container to kubernetes APP accessing
 # Docker 
 Docker uses host-private networking, so containers can talk to other containers only if they are on the same machine
 
+https://platform9.com/blog/container-namespaces-deep-dive-container-networking/
+
 # Node
 - Has IP before kubernetes cluster
 - Kubernetes provide hostname dns in cluster with kube-dns
