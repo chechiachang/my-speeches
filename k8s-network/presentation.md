@@ -2,6 +2,7 @@ Kubernetes Network
 ===
 
 Build our network service from Pod step by step
+From docker container to kubernetes APP accessing
 
 [kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
@@ -16,6 +17,9 @@ Docker uses host-private networking, so containers can talk to other containers 
 
 telnet a node's name
 test a kube-dns with debug mode
+
+# Container to Pod
+[Pause](https://github.com/kubernetes/kubernetes/blob/master/build/pause/Dockerfile)
 
 # Pod
 - Assign with an IP when created. Pod IP is an existing IP on a network device(real/virtual), maitained by flannel.
