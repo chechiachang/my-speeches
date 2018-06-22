@@ -70,7 +70,7 @@ This message shows that your installation appears to be working correctly.
 
 # Run a Docker container
 
-- docker ps -a
+- docker ps --all
 
 ```
 CONTAINER ID IMAGE       COMMAND  CREATED        STATUS                     NAMES
@@ -122,9 +122,9 @@ $ docker run --network host ...
 
 # [Docker networks](https://docs.docker.com/network/)
 
-- Bridge networks: communicate namespaces through bridge
+- Bridge networks: communicate containers through bridge
 - Host networks: use host’s port, ip...
-- Container networks: (attach) to another container's network namespace
+- Container networks: (attach) to another container's network
 - Overlay networks: communicate between multiple nodes
 ...
 
