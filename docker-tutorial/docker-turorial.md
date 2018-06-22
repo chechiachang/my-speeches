@@ -1,5 +1,6 @@
 footer: Che-Chia David Chang, 2018
 slidenumbers: true
+![fit](docker.png)
 
 # Docker tutorial
 
@@ -17,7 +18,12 @@ slidenumbers: true
 
 # What is [Docker](https://www.docker.com/)?
 
-### "Docker - Build, Ship, and Run Any App, Anywhere"
+> "Docker - Build, Ship, and Run Any App, Anywhere"
+-- docker official website
+
+---
+
+# What is [Docker](https://www.docker.com/)?
 
 ![inline](container-vm.png) ![inline](container-vm-2.png)
 
@@ -254,3 +260,9 @@ $ docker push chechiachang/friendlyhello:1
 # Run app on any other host
 $ docker run chechiachang/friendlyhello:1
 ```
+
+---
+![fit](docker.png)
+
+# Thank you
+
