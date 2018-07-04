@@ -3,35 +3,7 @@
 20180529 TUE 11:00-17:00
 iThome Kubernetes Summit 
 
-*您的暱稱
-張哲嘉
-*公司名稱 
-Linkernetworks
-*服務部門 
-軟體開發
-*職稱 
-工程師
-*電子郵件 
-chechiachang999@gmail.com
-*行動電話 
-0963178175
-
-您的暱稱？*
-您知道的，就是行走江湖、悠遊社群、網路與開發領域的大大之名
-
-David Chang
-David Chang 嚮往 Kubernetes Summit 的哪種舞台？*
-想要一同推廣技術應用，或者有一路走來的心路經歷要跟大家分享？
-40分鐘演說（講酬 $3,600，含全日進場） - 詳細分享技術應用或開發經驗。A
-
-David Chang的技術演說題目是？*
-放在議程表上，先聲奪人、引起聽眾興趣！
 Deploy High Availability Kubernetes Cluster On Cloud 
-
-聽懂David Chang演說內容的難易度？
-4
-
-演說內容與概要？*
 
 本次演講聚焦Kubernetes 的部署，透過一步步的步驟解說，幫助聽眾了解Kubernetes 的架構與元件。另外，也分享開發過程中可能的困難，提供聽眾們參考。
 
@@ -53,4 +25,3 @@ Deploy High Availability Kubernetes Cluster On Cloud
 David Chang先前曾在哪些場合分享演說過嗎？
 SDN x Cloud Native Meetup: Kubernetes Storage and GlusterFS
 2018 iThome Cloud & Edge Summit Featured Speech: Manage and Schedule GPU Computing Tasks on Kubernetes
-
