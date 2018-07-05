@@ -8,11 +8,20 @@ slidenumbers: true
 
 # Outline
 
-- Run a docker container
-- Use docker networks
-- Use docker volumes
-- Write a dockerfile and build a docker image
-- Use docker registry and distribute your apps on Dockerhub
+- Command line
+
+---
+
+# Command line
+
+gcloud instances list
+gcloud container clusters list
+
+aws ec2 describe-instances
+aws eks list-clusters
+
+az vm list
+az aks list
 
 ---
 
