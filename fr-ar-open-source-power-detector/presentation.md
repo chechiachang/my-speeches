@@ -135,7 +135,7 @@ It's really easy!
 
 # The end
 
-投影片及講稿 [https://github.com/chechiachang/my-speech]()
+投影片及講稿 [https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector](https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector)
 開源原始碼 [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 
 [Deckset: md to presetation](https://www.deckset.com/)
