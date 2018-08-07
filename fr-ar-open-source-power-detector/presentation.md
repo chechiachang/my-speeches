@@ -88,11 +88,9 @@ It's really easy!
 
 # Workflow
 
-1. App -> camera 
-1. Unity App -> Get face image -> API server
-2. API server -> Face recognition API -> which user
-3. API server -> user data -> Unity App
-5. Unity app -> show user data like contribution
+|Camera|APP|API server|Face recognition|DB|API server|App|
+|---|---|---|---|---|---|---|
+|Video Stream|Face Image||Identify User|User Data||Show data|
 
 ---
 
@@ -136,6 +134,7 @@ It's really easy!
 # The end
 
 投影片及講稿 [https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector](https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector)
+
 開源原始碼 [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 
 [Deckset: md to presetation](https://www.deckset.com/)
