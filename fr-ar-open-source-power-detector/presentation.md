@@ -1,3 +1,4 @@
+autoscale: true
 footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 slidenumbers: true
 
@@ -8,17 +9,17 @@ slidenumbers: true
 David Chang
 Back-End Developer, Kuberentes admin, DevOps
 
-![inline](images/davidchang.jpg)
+![inline](../images/davidchang.jpg)
 
 ---
 
 #  Scouter: 3 reasons why
 
-Garbage Talks at Linkernetworks
+Garbage Talks with Linkers
 Drangon Ball!
 For COSCUP!
 
-![inline](images/5000.jpg)
+![inline](../images/5000.jpg)
 
 ---
 
@@ -31,7 +32,7 @@ For COSCUP!
   Data mining
   Face detection & recognition
 
-![inline](images/only5.jpg)
+![inline](../images/only5.jpg)
 
 ---
 
@@ -52,7 +53,7 @@ For COSCUP!
 [Github API](https://developer.github.com/v3/)
 [go-github](https://github.com/google/go-github) (Api library in Golang)
 
-![inline](images/octocat.png)
+![inline](../images/octocat.png)
 
 ---
 
@@ -85,7 +86,7 @@ https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-0
 Data pre-processing -> Face encoding -> Face recognition
 It's really easy! 
 
-![inline](images/face_recognition.png)
+![inline](../images/face_recognition.png)
 
 ---
 
@@ -106,7 +107,7 @@ It's really easy!
 2. Detect face from image and recogniize user by face identity
 3. Get user data from DB and return to App
 
-![inline](images/flask.png)
+![inline](../images/flask.png)
 
 ---
 
@@ -127,7 +128,7 @@ It's really easy!
 
 [dlib](http://dlib.net/) : face recognition tools, models and algorithms
 
-![inline](images/unity.png) ![inline](images/opencv.png) ![inline](images/dlib.png)
+![inline](../images/unity.png) ![inline](../images/opencv.png) ![inline](../images/dlib.png)
 
 ---
 
@@ -192,7 +193,7 @@ COSCUP 充滿了愛與勇氣的故事
 >『因為我自己想做，還有當初推坑我的人太厲害。』
 -- David Chang, 2018 COSCUP
 
-![inline](images/23000.jpg)
+![inline](../images/23000.jpg)
 
 
 ---
