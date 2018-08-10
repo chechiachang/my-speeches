@@ -15,7 +15,12 @@ Back-End Developer, Kuberentes admin, DevOps
 
 # Ways to Read Source Code
 
+Github
 [https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)
+
+```
+go get -d k8s.io/kubernetes
+```
 
 1. Read everything line by line. Never done before :P
 2. Read some interesting part like:
@@ -30,9 +35,18 @@ Back-End Developer, Kuberentes admin, DevOps
 
 1. Let's use kube-apiserver
 2. Let's read api code
-  - How to run apiserver
+  - Basic
+  - Design
 
 ![inline](../images/kubernetes.png)
+
+---
+
+# Aggregated Apiserver
+
+divide the single monolithic API server into multiple aggregated servers
+Extend customized api with api
+Chain
 
 ---
 
@@ -41,6 +55,8 @@ Back-End Developer, Kuberentes admin, DevOps
 [Official Tutorial: Access API](https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api)
 
 [What happens when k8s](https://github.com/jamiehannaford/what-happens-when-k8s)
+
+[Deep Dive API server](https://blog.openshift.com/kubernetes-deep-dive-api-server-part-1/)
 
 Need a running kubernetes? Use This:
 [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
@@ -52,7 +68,9 @@ Need a running kubernetes? Use This:
 Kubectl
 ```
 kubectl proxy --port=8080 &
-curl http://localhost:8080/api/
+curl http://localhost:8080/api
+
+curl http://localhost:8080/api/v1/namespaces/default/pods
 ```
 
 Curl
