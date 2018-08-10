@@ -1,27 +1,67 @@
 # Me
 
-# Why Read Source Code
+# 開頭
 
-遇到 bug 時來 debug
--欣賞 kubernetes 的架構-
+雖然這個 session 系列叫帶大家讀源碼
+但一開始，我要先勸在做的各位契坑
+沒事幹嘛要讀源碼
 
-# 這是一邊導讀
+如果真的要讀
+從來沒讀過的人，面對一個龐大又複雜的系統，要怎麼讀
 
-這行 code 在幹嘛 -> 為了什麼目的這樣寫 -> 解決了什麼問題
+# Outline
+
+棄坑推薦：沒事別來讀 Save your time!
+Understand kubernetes before read source code
+Let's use kube-apiserver
+Let's read PR
+Let's read Source Code
 
 # 什麼條件下建議認真讀
+
+有更多值得你花時間去讀的源碼，讀完真的會提升開發能力
 
 1. 你是kubernetes 的源碼貢獻者
 2. 有使用 go-client 整合 kubernetes 開發
 3. 正在設計大型雲服務架構，ex. 自建分散式 api server -> kube-apiserver 有很多很特別的
-4. 你很喜歡看複雜的程式碼
 
+個人不建議的理由
+1. 欣賞 kubernetes 的架構，因為他太複雜（架構圖）
+2. 把人家的寫法學起來，之後遇到時可以用
+  kube-apiserver 是非常複雜的系統，想解決的問題，平常是很難遇到的，除非你是大型分散式系統的架構師
+
+如果不是 Kubernetes 的開發者，其實完全不需要一行一行把他看完
+就算在接 go-client，我們也是用到時才看，一邊使用一邊看
 我個人是遇到才看，用到才讀的
 
-1. 如果不是 Kubernetes 的開發者，其實完全不需要一行一行把他看完
-2. 就算在接 go-client，我們也是用到時才看，一邊使用一邊看
+接下來你真的要讀了，不後悔寶貴的光陰
+
+# 手邊應準備 Kube-apiserver The Easy Way
+
+[Official Tutorial: Access API](https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api)
+
+[What happens when k8s](https://github.com/jamiehannaford/what-happens-when-k8s)
+
+[Deep Dive API server](https://blog.openshift.com/kubernetes-deep-dive-api-server-part-1/)
+
+Need a running kubernetes? Use This:
+[Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
 
 # 讀之前要先知道的幾件事情
+
+1. 還沒讀源碼，先要認識 kube-apiserver
+看源碼之前，先知道這源碼
+源碼跟書本或是文章不一樣
+
+書本是在給你一個想法
+源碼是在解決一個實際的問題
+
+你讀一段 function code 然後把 function 名稱遮起來
+可以理解我想表達的意思嗎？
+是的，你認真地讀完源碼後，你會知道這段源碼在做什麼
+不覺得先看 function name 比較省時間？
+
+如果我把 kube-apiserver package name 遮起來，你看完終究會發現他是 apiserver...eventually
 
 1. Kubernetes 的基本架構，服務元件功能
 
@@ -30,38 +70,51 @@
 2. kube-apiserver 的設計理念 -> 為何要這樣做
 實作是來解決特定問題的。先知道實作想解決的問題，才來看實作
 
-3. 跑一個 kube-apiserver
+這行 code 在幹嘛 -> 為了什麼目的這樣寫 -> 解決了什麼問題
 
-# 好上手的開頭與閱讀方向
+# 推薦的閱讀方法
 
-1. 從第一行開始讀 -> X
+當然不是從第一行開始讀 -> X
 
-推薦的閱讀方法
-1. 基礎常用的東西: access, authentication
-2. 從 api-server 啟動開始讀，程式啟動，啟動參數
-3. 從 api request 進來後trace ，一直到 response 出去
+# 從自己用到的地方開始讀
 
-# Outline
+# Example
 
-1. Let's use kube-apiserver
-2. Let's read api code
-  - Basic
-  - Design
+https://github.com/kubernetes/kubernetes/pull/57508/files
 
-# How to Read Source Code
+# 從 comment 開始讀
 
-我自己沒有把整份 api server 的源碼看完
+只看 Comment 跟 function name
+能否掌握片段的脈絡
 
-把源碼 git clone 下來，然後像讀小說一樣一行一行，把源碼變成很好的睡前讀物，這也是
+# Example
 
-一邊使用，一邊查詢源碼中有用到的部分
+# 從 PR 開始讀
 
-# Kube-apiserver The Easy Way
+label:approved label:sig/api-machinery
 
-# First API call
+源碼未必有足夠的文件，但PR往往都會講述清楚這個 PR 的目的
+1. 篩選 label: 
+  - Approved / Merged 
+  - sig:api-machinery 
+2. 找看得懂的標題開始下手，conversation 少的通常比較入門
+3. 先看 Files changed ，再開 View 整個檔案
+4. 用 PR 的內容說明，彌補源碼中 comment 不足的地方
+5. (Optional) 看懂了後，幫忙加個 comment ，自己發個 PR
 
-What is kubectl
+https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+is%3Aopen+api+label%3Aapproved
 
-# Flow
+# Example
 
-Creates a proxy server or application-level gateway between localhost and the Kubernetes API Server.
+https://github.com/kubernetes/kubernetes/pull/66851
+
+# 從開始的地方開始
+
+1. 從 api-server 啟動開始讀，程式啟動，啟動參數
+找一個 running kube-apiserver ，檢查他的啟動參數
+
+2. 選一個有興趣的 api，從 api request 進來後trace ，一直到 response 出去
+
+# End
+
+http://slack.k8s.io/
