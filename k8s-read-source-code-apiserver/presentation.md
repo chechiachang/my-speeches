@@ -87,13 +87,15 @@ ServerChaing: cmd/kube-apiserver/app/server.go
 
 ---
 
-# Aggregated Server
+# Kube-apiserver 
 
-https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/apiserver-aggregation/
-
-- divide the single monolithic API server into multiple aggregated servers
-- Extend customized api
-- Authentication Chain
+- cmd/apiverser
+  - Options
+- CreateServerChain
+- AggregatedServer
+  - divide the single monolithic API server into multiple aggregated servers
+  - Extend customized api
+  - Authentication Chain
 
 ---
 
@@ -120,15 +122,38 @@ is:pr label:sig/api-machinery label:approved
 
 # Find a 'short' PR
 
-https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved
+is:pr label:sig/api-machinery label:approved
+
+[https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved](https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved)
 
 ---
 
-# Filter interesting PRs
+# Example: an easy PR
 
-api group label:sig/api-machinery label:approved
+[https://github.com/kubernetes/kubernetes/pull/66851](https://github.com/kubernetes/kubernetes/pull/66851)
 
-https://github.com/kubernetes/kubernetes/issues?utf8=%E2%9C%93&q=api+group+label%3Asig%2Fapi-machinery+label%3Aapproved
+---
+
+# Let's learn Pod GC Controller
+
+![inline](../images/kube-pod-gc-controller-1.png)
+
+---
+
+# Let's learn Pod GC Controller
+
+![inline](../images/kube-pod-gc-controller-2.png)
+
+---
+
+# Better flow
+
+Find your interest
+  - Find a feature, an issue, ...
+  - Read document
+  - Join a kubernetes special interest group
+
+[https://github.com/kubernetes/community/blob/master/sig-list.md](https://github.com/kubernetes/community/blob/master/sig-list.md)
 
 ---
 
@@ -138,13 +163,6 @@ https://github.com/kubernetes/kubernetes/issues?utf8=%E2%9C%93&q=api+group+label
   - Read comment first, then source code
   - Read github Issues and PRs
 
----
+--
 
-# Read PR Example
-
-label:approved label:sig/api-machinery
-
-https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+is%3Aopen+api+label%3Aapproved
-
-https://github.com/kubernetes/kubernetes/pull/66851
-
+# End

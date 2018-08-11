@@ -82,9 +82,7 @@
 
 2. 選一個有興趣的 api，從 api request 進來後trace ，一直到 response 出去
 
-# Find a 'short' PR
-
-https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved
+# Still with me?
 
 # Filter interesting PRs
 
@@ -104,6 +102,8 @@ label:approved label:sig/api-machinery
 3. 先看 Files changed ，再開 View 整個檔案
 4. 用 PR 的內容說明，彌補源碼中 comment 不足的地方
 5. (Optional) 看懂了後，幫忙加個 comment ，自己發個 PR
+
+# Let's learn Pod GC Controller
 
 # End
 
