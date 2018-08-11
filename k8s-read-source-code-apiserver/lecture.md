@@ -1,29 +1,23 @@
 # Me
 
-# 開頭
+# Outline
+
+原先要講的題目太大，我根本講不完，再來就是太硬，這邊做了點調整
+
+- Before read source code
+棄坑推薦：沒事別來讀 Save your time!
+- Let's read Source Code the hard way
+- Let's read Source Code the esay way
+
+# Why read kube-apiserver
 
 雖然這個 session 系列叫帶大家讀源碼
 但一開始，我要先勸在做的各位契坑
 沒事幹嘛要讀源碼
 
-如果真的要讀
-從來沒讀過的人，面對一個龐大又複雜的系統，要怎麼讀
-
-# Outline
-
-棄坑推薦：沒事別來讀 Save your time!
-Understand kubernetes before read source code
-Let's use kube-apiserver
-Let's read PR
-Let's read Source Code
-
-# 什麼條件下建議認真讀
-
-有更多值得你花時間去讀的源碼，讀完真的會提升開發能力
-
 1. 你是kubernetes 的源碼貢獻者
 2. 有使用 go-client 整合 kubernetes 開發
-3. 正在設計大型雲服務架構，ex. 自建分散式 api server -> kube-apiserver 有很多很特別的
+3. 正在設計大型雲服務架構，ex. 自建分散式 api server
 
 個人不建議的理由
 1. 欣賞 kubernetes 的架構，因為他太複雜（架構圖）
@@ -34,18 +28,25 @@ Let's read Source Code
 就算在接 go-client，我們也是用到時才看，一邊使用一邊看
 我個人是遇到才看，用到才讀的
 
-接下來你真的要讀了，不後悔寶貴的光陰
+# Question
 
-# 手邊應準備 Kube-apiserver The Easy Way
+讀過 kubernetes source code 舉個手
+用過 kubernetes ，知道大體架構的請舉個手
+會寫 golang
 
+# Before read kube-apiserver
+
+- Understand kube-apiserver architecture 
 [Official Tutorial: Access API](https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api)
-
 [What happens when k8s](https://github.com/jamiehannaford/what-happens-when-k8s)
-
 [Deep Dive API server](https://blog.openshift.com/kubernetes-deep-dive-api-server-part-1/)
 
-Need a running kubernetes? Use This:
+- Design concepts
+
+- A running kubernetes. Try this
 [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
+
+手邊應準備 Kube-apiserver The Easy Way
 
 # 讀之前要先知道的幾件事情
 
@@ -72,22 +73,24 @@ Need a running kubernetes? Use This:
 
 這行 code 在幹嘛 -> 為了什麼目的這樣寫 -> 解決了什麼問題
 
-# 推薦的閱讀方法
+# kube-apiserver architecture
 
-當然不是從第一行開始讀 -> X
+# 從開始的地方開始
 
-# 從自己用到的地方開始讀
+1. 從 api-server 啟動開始讀，程式啟動，啟動參數
+找一個 running kube-apiserver ，檢查他的啟動參數
 
-# Example
+2. 選一個有興趣的 api，從 api request 進來後trace ，一直到 response 出去
 
-https://github.com/kubernetes/kubernetes/pull/57508/files
+# Find a 'short' PR
 
-# 從 comment 開始讀
+https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved
 
-只看 Comment 跟 function name
-能否掌握片段的脈絡
+# Filter interesting PRs
 
-# Example
+api group label:sig/api-machinery label:approved
+
+https://github.com/kubernetes/kubernetes/issues?utf8=%E2%9C%93&q=api+group+label%3Asig%2Fapi-machinery+label%3Aapproved
 
 # 從 PR 開始讀
 
@@ -101,19 +104,6 @@ label:approved label:sig/api-machinery
 3. 先看 Files changed ，再開 View 整個檔案
 4. 用 PR 的內容說明，彌補源碼中 comment 不足的地方
 5. (Optional) 看懂了後，幫忙加個 comment ，自己發個 PR
-
-https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+is%3Aopen+api+label%3Aapproved
-
-# Example
-
-https://github.com/kubernetes/kubernetes/pull/66851
-
-# 從開始的地方開始
-
-1. 從 api-server 啟動開始讀，程式啟動，啟動參數
-找一個 running kube-apiserver ，檢查他的啟動參數
-
-2. 選一個有興趣的 api，從 api request 進來後trace ，一直到 response 出去
 
 # End
 

@@ -1,4 +1,3 @@
-autoscale: true
 footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang](https://github.com/chechiachang)
 slidenumbers: true
 
@@ -13,119 +12,139 @@ Back-End Developer, Kuberentes admin, DevOps
 
 ---
 
-# Ways to Read Source Code
-
-Github
-[https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)
-
-```
-go get -d k8s.io/kubernetes
-```
-
-1. Read everything line by line. Never done before :P
-2. Read some interesting part like:
-  - How to access with client
-  - Authentication and Authorization
-  - Big picture (Architecture)
-  - Go through workflow for one API
-
---- 
-
 # Outline
 
-1. Let's use kube-apiserver
-2. Let's read api code
-  - Basic
-  - Design
+- Before read source code
+- Let's read Source Code the hard way
+- Let's read Source Code the esay way
 
 ![inline](../images/kubernetes.png)
 
 ---
 
-# Aggregated Apiserver
+# Why read kube-apiserver
 
-divide the single monolithic API server into multiple aggregated servers
-Extend customized api with api
-Chain
+1. Kubernetes source code contributors
+2. Developers using go-client to integrate Kubernetes
+3. Distributed architecture Design
+4. For fun (?)
 
 ---
 
-# Kube-apiserver The Easy Way
+# Before read kube-apiserver
 
+- Understand kube-apiserver architecture 
 [Official Tutorial: Access API](https://kubernetes.io/docs/tasks/administer-cluster/access-cluster-api)
-
 [What happens when k8s](https://github.com/jamiehannaford/what-happens-when-k8s)
-
 [Deep Dive API server](https://blog.openshift.com/kubernetes-deep-dive-api-server-part-1/)
 
-Need a running kubernetes? Use This:
+- Design concepts
+
+- A running kubernetes. Try this
 [Katacoda](https://www.katacoda.com/courses/kubernetes/playground)
 
 ---
 
-# First API call
+# kube-apiserver architecture
 
-Kubectl
-```
-kubectl proxy --port=8080 &
-curl http://localhost:8080/api
+What's kube-apiserver:
 
-curl http://localhost:8080/api/v1/namespaces/default/pods
-```
-
-Curl
-```
-APISERVER=$(kubectl config view | grep server | cut -f 2- -d ":" | tr -d " ")
-TOKEN=$(kubectl describe secret $(kubectl get secrets | grep default | cut -f1 -d ' ') | grep -E '^token' | cut -f2 -d':' | tr -d '\t')
-curl $APISERVER/api --header "Authorization: Bearer $TOKEN" --insecure
-```
+- Component on the master that exposes the Kubernetes API. It is the front-end for the Kubernetes control plane. 
+- It is designed to scale horizontally – that is, it scales by deploying more instances.
 
 ---
 
-# Go client
+# kube-apiserver architecture
 
-Programmatic access to the API with libraries
-- Suport Go and Python
-
-```
-go get https://github.com/kubernetes/client-go
-
-import (
-   "k8s.io/client-go/1.4/kubernetes"
-   "k8s.io/client-go/1.4/pkg/api/v1"
-   "k8s.io/client-go/1.4/tools/clientcmd"
-)
-   // uses the current context in kubeconfig
-   config, _ := clientcmd.BuildConfigFromFlags("", "path to kubeconfig")
-   // creates the clientset
-   clientset, _:= kubernetes.NewForConfig(config)
-   // access the API to list pods
-   pods, _:= clientset.CoreV1().Pods("").List(v1.ListOptions{})
-```
----
-
-# Kubectl
-
-1. Ensure client-side fail fast
-2. Authentication
+![inline](../images/kube-apiserver-arch.jpg)
 
 ---
 
-# How to run a apiserver
+cmd/kube-apiserver/apiserver.go
 
-Source code
-
-https://github.com/kubernetes/kubernetes/blob/master/cmd/kube-apiserver/apiserver.go
+```
+$ ./kube-apiserver [args...]
+```
+![inline](../images/kube-apiserver-main-1.png)
 
 ---
 
-# Check a running kube-apiserver
+NewApiServerCommand: cmd/kube-apiserver/app/server.go
 
-```
-kubectl describe po kube-apiserver-master -n kube-system
-```
+![inline](../images/kube-apiserver-main-2.png)
 
 ---
 
-# What happens when kube-apiserver run
+server.Run: cmd/kube-apiserver/app/server.go
+
+![inline](../images/kube-apiserver-main-3.png)
+
+---
+
+ServerChaing: cmd/kube-apiserver/app/server.go
+
+![inline](../images/kube-apiserver-main-4.png)
+
+---
+
+# Aggregated Server
+
+https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/apiserver-aggregation/
+
+- divide the single monolithic API server into multiple aggregated servers
+- Extend customized api
+- Authentication Chain
+
+---
+
+# Still with me?
+
+Let's try another way.
+
+---
+
+# Let's read Source Code with Merged PRs
+
+
+[https://github.com/kubernetes/kubernetes](https://github.com/kubernetes/kubernetes)
+
+1. Go through the whold go file from top to buttom. 
+-> Not recommended.
+
+2. Start from bugs, issues, or PRs.
+
+3. Use filter
+is:pr label:sig/api-machinery label:approved
+
+---
+
+# Find a 'short' PR
+
+https://github.com/kubernetes/kubernetes/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3Asig%2Fapi-machinery+label%3Aapproved
+
+---
+
+# Filter interesting PRs
+
+api group label:sig/api-machinery label:approved
+
+https://github.com/kubernetes/kubernetes/issues?utf8=%E2%9C%93&q=api+group+label%3Asig%2Fapi-machinery+label%3Aapproved
+
+---
+
+# Tips
+
+  - Read document first, then source code
+  - Read comment first, then source code
+  - Read github Issues and PRs
+
+---
+
+# Read PR Example
+
+label:approved label:sig/api-machinery
+
+https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+is%3Aopen+api+label%3Aapproved
+
+https://github.com/kubernetes/kubernetes/pull/66851
 
