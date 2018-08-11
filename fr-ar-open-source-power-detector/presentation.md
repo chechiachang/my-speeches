@@ -1,4 +1,3 @@
-autoscale: true
 footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 slidenumbers: true
 
@@ -76,7 +75,7 @@ For COSCUP!
   User API 50000 query / hour
 3. Parallel request with Wait Group (Optional)
 
-https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc
+[https://github.com/kubernetes/kubernetes/pull/66403](https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc)
 
 ---
 
@@ -84,7 +83,6 @@ https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-0
 
 [The world's simplest facial recognition api](https://github.com/ageitgey/face_recognition)
 Data pre-processing -> Face encoding -> Face recognition
-It's really easy! 
 
 ![inline](../images/face_recognition.png)
 
@@ -169,32 +167,27 @@ It's really easy!
 
 ---
 
-# How
+# How to learn anything in one Month
 
-我想分享的是一個越級打怪，一邊快速成長的捷徑:
-
-挑幾個不會的題目，然後去報 COSCUP 講一個 session
+我想分享的是一個越級打怪，一邊快速成長的捷徑
 
 ---
 
-#  The end
-
-COSCUP 充滿了愛與勇氣的故事
-
-我們不是在寫客戶要的，公司要的，主管要的。工作上也有很多有趣的事情。
-我們在做自己想做的東西。
-
-最後送大家一句話。
+#『去報 COSCUP ，講一個 session』
 
 ---
 
-# 
+#  
 
 >『因為我自己想做，還有當初推坑我的人太厲害。』
--- David Chang, 2018 COSCUP
 
 ![inline](../images/23000.jpg)
 
+---
+
+# Reviews
+
+Scouter is relatively simple project. Do try this at home!
 
 ---
 
@@ -202,8 +195,5 @@ COSCUP 充滿了愛與勇氣的故事
 
 投影片及講稿 [https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector](https://github.com/chechiachang/my-speeches/tree/master/fr-ar-open-source-power-detector)
 
-開源原始碼 [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
+Scouter 原始碼 [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 
-[Deckset: md to presetation](https://www.deckset.com/)
-
----

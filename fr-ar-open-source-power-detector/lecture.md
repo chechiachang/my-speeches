@@ -120,11 +120,13 @@ C# 透過 OpenCV 做影像的處理，並把人臉截圖，傳送到後端。
 
 我是後端工程師，golang 跟 bash 還有 kubernetes
 
-# How
+# How to learn anything in one Month
 
 我想分享的是一個越級打怪，一邊快速成長的捷徑。
 
 很簡單，你就挑幾個不會，但是有興趣的題目，然後去報 COSCUP 講一個 session
+
+#『去報 COSCUP ，講一個 session』
 
 準備的過程中，COSCUP 會給你很大的動力，跟時間壓力
 台灣有很多很不錯的研討會，大家真的要踴躍參加，收穫最多的絕對是自己。
