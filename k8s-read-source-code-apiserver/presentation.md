@@ -157,12 +157,8 @@ Find your interest
 
 ---
 
-# Tips
+# End
 
   - Read document first, then source code
   - Read comment first, then source code
   - Read github Issues and PRs
-
---
-
-# End
