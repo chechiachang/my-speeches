@@ -1,4 +1,4 @@
-footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
+footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang/my-speeches/tree/master/go-github](https://github.com/chechiachang/my-speeches/tree/master/go-github)
 slidenumbers: true
 
 # Github API with Go-Github
@@ -17,8 +17,6 @@ Back-End Developer, Kuberentes admin, DevOps
 1. Let's try Github API
 2. Use github API with go-github
 3. Work with limitation of github API
-  - Frequency limitation
-  - Paging size limitation
 4. An application of github user data
 
 ![inline](../images/octocat.png)
@@ -54,9 +52,15 @@ Search data of users with location in Taiwan
 2. API request limit
   Search API 30 query / min
   User API 50000 query / hour
-3. Parallel request with Wait Group (Optional)
+3. Parallel requesting with go rutine and sync.WaitGroup (Optional)
 
 [https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc](https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc)
+
+---
+
+# Limitation of Github API
+
+[https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go](https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go)
 
 ---
 
@@ -87,7 +91,7 @@ Search data of users with location in Taiwan
 # Application: User Data Miners
 
 - Use access token
-- Add Query, SearchOption, Sort, Order, ListOption...
+- Add Query, SearchOption, Sort, Order, ListOption ...
 - fetch user data with search API
 
 [https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go](https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go)
@@ -98,20 +102,18 @@ Search data of users with location in Taiwan
 
 Scouter [https://github.com/chechiachang/scouter](https://github.com/chechiachang/scouter)
 
-Live Demo
+Let's Live Demo
 
 ---
 
 # An Application Using Github Data
 
-Application: User Data Miners to fetch user details, avatars, and contribution
-Face detection & Face recognition
-Api server
+- User Data Miners to fetch user details, avatars, and contribution
+- Face detection & Face recognition
+- Api server
 
 Video Stream -> Face Image -> Identify User -> User Data -> Show data
 
 ---
 
 # The end
-
-投影片及講稿 [https://github.com/chechiachang/my-speeches/tree/master/go-github](https://github.com/chechiachang/my-speeches/tree/master/go-github)
