@@ -139,4 +139,10 @@ Video Stream -> Face Image -> Identify User -> User Data -> Show data
 
 ---
 
+Video Stream on COSCUP 2018
+
+![inline](https://www.youtube.com/watch?v=4SWO4x7bNjo&t=23633s)
+
+---
+
 # The end
