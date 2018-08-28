@@ -27,64 +27,87 @@ Back-End Developer, Kuberentes admin, DevOps
 
 Get data of a user with username
 
+Web page
+
 [https://github.com/chechiachang](https://github.com/chechiachang)
+
+Api
 
 [https://api.github.com/users/chechiachang](https://api.github.com/users/chechiachang)
 
 ---
 
-# Let's Try Github API
-
-Search data of users with location in Taiwan
-
 [https://github.com/search?q=location:Taiwan+type:user](https://github.com/search?q=location:Taiwan+type:user)
 
-[https://api.github.com/search/users?q=location:Taiwan&sort=followers](https://api.github.com/search/users?q=location:Taiwan&sort=followers)
-
-[Github Search User API Docs](https://developer.github.com/v3/search/#search-users)
-
---- 
-
-# Limitation of Github API
-
-1. API paging limit
-  Search API only return first 1000 users
-2. API request limit
-  Search API 30 query / min
-  User API 50000 query / hour
-3. Parallel requesting with go rutine and sync.WaitGroup (Optional)
-
-[https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc](https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc)
+![inline](../images/github-api-search-bigbig.png)
 
 ---
 
-# Limitation of Github API
+[/users?q=location:Taiwan&sort=followers&order=desc](https://api.github.com/search/users?q=location:Taiwan&sort=followers&order=desc)
 
-[https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go](https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go)
+![inline](../images/github-api-search-audreyt.png)
+
+---
+
+[Github Search User API Docs](https://developer.github.com/v3/search/#search-users)
+
+![inline](../images/github-api-search-user.png)
 
 ---
 
 # Github API Authentication
 
 - Most API requires authentication
-  - [https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
-- Generate api access token from web page
-  - Github -> User -> settings -> Developer settings -> Personal access tokens
+- [https://developer.github.com/v3/#authentication](https://developer.github.com/v3/#authentication)
+- Let's generate api access token from web page
+
+---
+
+Github -> User -> settings -> Developer settings -> Personal access tokens
+
+![inline](../images/github-api-access-token.png)
 
 ---
 
 # Go-github
 
-[https://github.com/google/go-github](https://github.com/google/go-github)
-
-- A go client library for accessing github API
 - Provide programmatic way to access APIs
+- A client library for accessing github API in golang
+
+[https://github.com/google/go-github](https://github.com/google/go-github)
 
 ---
 
-# Example Application
+![inline](../images/github-api-gogithub-auth.png)
 
-[https://github.com/chechiachang/scouter/blob/master/github.go](https://github.com/chechiachang/scouter/blob/master/github.go)
+---
+
+[https://github.com/chechiachang/scouter/blob/master/github.go#L44](https://github.com/chechiachang/scouter/blob/master/github.go)
+
+![inline](../images/github-api-example.png)
+
+--- 
+
+# Limitation of Github API
+
+1. API paging limit: Search API only return first 1000 users
+2. API request limit
+  Search API 30 query / min
+  User API 50000 query / hour
+
+[/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc](https://api.github.com/search/users?q=location:taiwan+created:2008-01-01..2008-02-01&sort=joined&order=asc)
+
+---
+
+# Work with limitation
+
+1. Paging limit: narrow down search query with time interval
+2. Control your requests rate 
+   One of the easist ways is time.Sleep()
+
+[https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go#L68](https://github.com/chechiachang/scouter/blob/master/cmd/user_fetcher/main.go)
+
+![inline](../images/party_parrot.gif)
 
 ---
 
