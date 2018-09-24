@@ -32,9 +32,13 @@ Hardware
 
 ---
 
-# Get your hand dirty
+# Solidity
 
 ```
 npm install remix-ide -g
 remix-ide
+```
+
+```
+npm install -g solc
 ```
