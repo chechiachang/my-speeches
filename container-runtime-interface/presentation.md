@@ -1,23 +1,47 @@
-Container Runtime Interface
+Kubernetes Container Runtime Interface
 ===
 
 # Session Objective
 
-CR
-CRI
-CRI-O
+1. How to run Kubernetes without Docker
 
-# Docker Altiernatives
-
-https://github.com/rkt/rkt
-https://github.com/lxc/lxd
-
-# Why not Docker
-Issue About Docker
+2. Understand the following terms and their relations
+- Container Runtime
+- CRI
+- CRI-O
 
 # CRI
-
+Container Runtime Interface
 https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/
+
+# Projects to 'Run' container
+
+Docker - application container runtime
+rkt - containers runtime runs on Pod level
+LXC/LXD - Linux container
+runC - low level cmd tool to spawn CRI standard container
+containerd - daemon to control runC
+OpenVZ - run full system containers
+systemd-nspawn - run full system containers
+machinectl - run full system containers
+qemu-kvm, lkvm - user namespaces control tool
+
+Those projects are not exclusive. They work together. 
+ex. Docker has runC and containerd. LXC was Docker's default execution environment.
+
+# What's wrong with Docker
+
+From rkt to compare other container
+https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html
+
+Dockerd is bind to socket and always need sudo. Check this 
+https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
+
+And Docker official docs about security
+https://docs.docker.com/engine/security/security/
+
+Watch out privileged in your docker run / yaml file
+--privileged -> container run as root user
 
 # CRI stack
 
@@ -27,16 +51,22 @@ CRI
 Container Runtimes - 
 
 # RKT (Rocket)
-https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html
+
 
 # RKT Stack
 
-# CRI-O & OCI
+# CRI-O
 
 http://cri-o.io/
 https://github.com/kubernetes-sigs/cri-o
 
+# OCI
+
+OCI-based Container Runtime Interface
+
 # References
 
+https://kubernetes.io/blog/2017/11/containerd-container-runtime-options-kubernetes/
+https://xuxinkun.github.io/2017/12/12/docker-oci-runc-and-kubernetes/
 https://www.kubernetes.org.cn/1079.html
 https://jimmysong.io/posts/kubernetes-open-interfaces-cri-cni-csi/
