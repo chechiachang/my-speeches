@@ -16,15 +16,15 @@ https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes
 
 # Projects to 'Run' container
 
-Docker - application container runtime
-rkt - containers runtime runs on Pod level
-LXC/LXD - Linux container
-runC - low level cmd tool to spawn CRI standard container
-containerd - daemon to control runC
-OpenVZ - run full system containers
-systemd-nspawn - run full system containers
-machinectl - run full system containers
-qemu-kvm, lkvm - user namespaces control tool
+- Docker - application container runtime
+- rkt - containers runtime runs on Pod level
+- LXC/LXD - Linux container
+- runC - low level cmd tool to spawn CRI standard container
+- containerd - daemon to control runC
+- OpenVZ - run full system containers
+- systemd-nspawn - run full system containers
+- machinectl - run full system containers
+- qemu-kvm, lkvm - user namespaces control tool
 
 Those projects are not exclusive. They work together. 
 ex. Docker has runC and containerd. LXC was Docker's default execution environment.
@@ -55,14 +55,31 @@ Container Runtimes -
 
 # RKT Stack
 
-# CRI-O
+# OCI & CRI-O
+
+OCI - Open Container Initiative
+
+CRI-O - based implementation for Container Runtime Interface
 
 http://cri-o.io/
 https://github.com/kubernetes-sigs/cri-o
 
-# OCI
+My-Container-Runtime + CRI-O plugin = Kubernetes
 
-OCI-based Container Runtime Interface
+# New Stack
+
+Kubernetes
+Kubelet
+OCI
+Docker / OCI-daemon
+Container
+Linux
+
+# Sum
+
+- Container Runtime
+- CRI
+- CRI-O
 
 # References
 
