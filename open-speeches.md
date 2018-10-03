@@ -3,3 +3,5 @@
 - 2018 iThome Kubernetes Summit: Kubernetes Networking
 - 2018 COSCUP Featured Speech: 結合AR 與人臉辨識開源戰鬥力探測器
 - 2018 COSCUP Featured Speech: Kubernetes API server source code walkthrough
+
+- : Golang Gc
