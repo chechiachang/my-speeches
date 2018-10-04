@@ -10,6 +10,22 @@ Kubernetes Container Runtime Interface
 - CRI
 - CRI-O
 
+# What is a container
+
+Container is process.
+Here's OCI spec come in.
+
+Container image spec
+https://github.com/opencontainers/image-spec
+https://github.com/containers/image
+
+Container Storage
+Container Engine / Container CLI
+
+CNI, CSI
+
+Container spec vs Pod 
+
 # CRI
 Container Runtime Interface
 https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/
