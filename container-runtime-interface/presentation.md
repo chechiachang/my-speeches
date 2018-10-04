@@ -12,25 +12,23 @@ Kubernetes Container Runtime Interface
 
 # What is a container
 
-Container is process.
-Here's OCI spec come in.
+Container image
+Container storage
+Container Engine / Container CLI
+Container (process) monitor
 
-Container image spec
+# Here's OCI spec come in.
+
+CNI, CSI
+Container spec vs Pod 
 https://github.com/opencontainers/image-spec
 https://github.com/containers/image
 
-Container Storage
-Container Engine / Container CLI
-
-CNI, CSI
-Container monitor
-
-Container spec vs Pod 
-
 # What's wrong with Docker
 
-root permission for docker sock and docker daemon
+Uid control / root permission for docker sock and docker daemon
 
+Process control
 Docker-cli -> Docker daemon -> my-container(grandchild process)
 
 Is there is a cli tool to do container without root and daemon?
