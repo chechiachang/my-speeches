@@ -23,8 +23,17 @@ Container Storage
 Container Engine / Container CLI
 
 CNI, CSI
+Container monitor
 
 Container spec vs Pod 
+
+# What's wrong with Docker
+
+root permission for docker sock and docker daemon
+
+Docker-cli -> Docker daemon -> my-container(grandchild process)
+
+Is there is a cli tool to do container without root and daemon?
 
 # CRI
 Container Runtime Interface
