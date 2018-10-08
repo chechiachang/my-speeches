@@ -1,112 +1,191 @@
-Kubernetes Container Runtime Interface
-===
+footer: Che-Chia David Chang, 2018,  [https://github.com/chechiachang](https://github.com/chechiachang)
+slidenumbers: true
 
-# Session Objective
+# CRI, OCI, CRI-O
 
-1. How to run Kubernetes without Docker
+---
 
-2. Understand the following terms and their relations
-- Container Runtime
-- CRI
-- CRI-O
+David Chang DevOps @ Mithril
+Back-End Developer, Kuberentes admin, DevOps
 
-# What is a container
+![inline](../images/davidchang.jpg)
 
-Container image
-Container storage
-Container Engine / Container CLI
-Container (process) monitor
+---
 
-# Here's OCI spec come in.
+# Outline
 
-CNI, CSI
-Container spec vs Pod 
-https://github.com/opencontainers/image-spec
-https://github.com/containers/image
+1. Container Runtime Interface (CRI)
+2. Open Container Initiative (OCI) 
+3. CRI-O 
+4. Kubernetes on CRI-O 
 
-# What's wrong with Docker
+![inline](../images/cri-o.png) ![inline](../images/kubernetes.png)
 
-Uid control / root permission for docker sock and docker daemon
+--- 
 
-Process control
-Docker-cli -> Docker daemon -> my-container(grandchild process)
+# Trend Kubernetes 
 
-Is there is a cli tool to do container without root and daemon?
+- Kubernetes 1.3 introduced rktnetes 
+- Kubernetes 1.5 introduced CRI 
+- Kubernetes 1.7 removed pre-CRI Docker / rkt integration
+- Currently works Kubelet to use CRI 
 
-# CRI
-Container Runtime Interface
-https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/
+- CRI-O: released 1.0.x to match Kubernetes 1.7 
 
-# Projects to 'Run' container
+---
 
-- Docker - application container runtime
-- rkt - containers runtime runs on Pod level
-- LXC/LXD - Linux container
-- runC - low level cmd tool to spawn CRI standard container
-- containerd - daemon to control runC
-- OpenVZ - run full system containers
-- systemd-nspawn - run full system containers
-- machinectl - run full system containers
-- qemu-kvm, lkvm - user namespaces control tool
+# Nomination
 
-Those projects are not exclusive. They work together. 
-ex. Docker has runC and containerd. LXC was Docker's default execution environment.
+CRI-O
+- OCI-based implementation of Kubernetes Container Runtime Interface
 
-# What's wrong with Docker
-
-From rkt to compare other container
-https://coreos.com/rkt/docs/latest/rkt-vs-other-projects.html
-
-Dockerd is bind to socket and always need sudo. Check this 
-https://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo
-
-And Docker official docs about security
-https://docs.docker.com/engine/security/security/
-
-Watch out privileged in your docker run / yaml file
---privileged -> container run as root user
-
-# CRI stack
-
-Kubernetes 
-kubelet - a k8s agent to run on each server to 'control' container runtime
 CRI
-Container Runtimes - 
+- Kubernetes Container Runtime Interface
 
-# RKT (Rocket)
+OCI
+- Open Container initiative
+
+---
+
+# Projects with Container Runtime
 
 
-# RKT Stack
+docker, rkt, LXC/LXD, runC, containerd, OpenVZ, systemd-nspawn, machinectl, qemu-kvm, lkvm...
 
-# OCI & CRI-O
+Kubernetes (before 1.6) native supports
+- Docker
+- rkt
 
-OCI - Open Container Initiative
+![inline](../images/docker-angry.png) ![inline](../images/rkt.png)
 
-CRI-O - based implementation for Container Runtime Interface
+---
+
+# Container Runtime Interface(CRI)
+
+- Enable Kubernetes to support more runtimes
+- Free kubernetes to focus on orchestration from runtime integration
+- Consists
+  - a protocol buffers and gRPC API
+  - libraries, additional specifications and tools
+
+---
+
+# Container Runtime Interface(CRI)
+
+![inline](../images/containerd.png)
+
+---
+
+# CRI api in kubernetes
+
+[https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto)
+
+---
+
+# CRI runtimes
+ 
+- Docker CRI shim (cri-containerd)
+- CoreOS [rktlet](https://github.com/kubernetes-incubator/rktlet)
+- [frakti](https://github.com/kubernetes/frakti): hypervisor-based container runtimes
+- Intel [Clear container](https://github.com/clearcontainers/runtime)
+- OpenStack [kata runtime](https://github.com/kata-containers/runtime)
+- [cri-o](http://cri-o.io/)
+
+---
+
+# Open Container Inititive (OCI)
+
+- open governance structure
+- container industry standards
+
+- [runtime spec](https://github.com/opencontainers/runtime-spec/blob/master/spec.md) defines configuration, execution environment, and lifecycle of a container
+- [image spec](https://github.com/opencontainers/image-spec/blob/master/spec.md) spec on archetecture and OS, filesystem layers and configuration
+
+---
+
+# OCI from aspect of user
+
+- Use all OCI-conplimant container runtime
+- Use all OCI-complimant images registries
+- Similar UX
+
+https://www.opencontainers.org/blog/2018/06/20/cri-o-how-standards-power-a-container-runtime
+
+---
+
+# CRI-O
+
+- OCI-based implementation of Kubernetes Container Runtime Interface
+- Kubernetes incubator project also part of the CNCF
+- Dedicated for Kubernetes
+- Enable CRI-O plugin to other runtimes
+- Available on RHEL, Fedora, Centos, Ubuntu...
 
 http://cri-o.io/
-https://github.com/kubernetes-sigs/cri-o
 
-My-Container-Runtime + CRI-O plugin = Kubernetes
+---
 
-# New Stack
+# CRI-O vs Docker (containerd)
 
-Kubernetes
-Kubelet
-OCI
-Docker / OCI-daemon
-Container
-Linux
+kubelet -> cri-containerd (shim) -> containerd -> runC -> container
+kubelet -> cri-o -> runC -> container
 
-# Sum
+- Lightweight
+- Stability
+  - built for Kubernetes
+  - No cli, image utilities, ...
+  - No swarm, mesosphere integration, ...
 
-- Container Runtime
-- CRI
-- CRI-O
+---
+
+![inline](../images/cri-o-arch.png)
+
+---
+
+# Let's use CRI-O
+
+- [Install cri-o](https://github.com/kubernetes-sigs/cri-o) and dependencies, runC and CNI
+- Install [Podman](https://github.com/containers/libpod) 
+  - Podman to cri-o as Docker-cli to Docker daemon
+
+```
+sudo podman run --name my-golang golang:alpine bash
+```
+
+---
+
+[Minikube](https://github.com/kubernetes/minikube/blob/master/docs/alternative_runtimes.md#using-cri-o)
+
+
+```bash
+minikube start \
+  --network-plugin=cni \
+  --container-runtime=cri-o
+
+minikube start \
+  --network-plugin=cni \
+  --extra-config=kubelet.container-runtime=remote \
+  --extra-config=kubelet.container-runtime-endpoint=/var/run/crio/crio.sock \
+  --extra-config=kubelet.image-service-endpoint=/var/run/crio/crio.sock
+```
+
+--- 
+
+# Run Kubernetes on CRI-O 
+
+https://github.com/kubernetes-sigs/cri-o/blob/master/kubernetes.md
+
+```
+kubelet --container-runtime-endpoint=unix:///var/run/crio/crio.sock
+...
+```
+
+---
 
 # References
 
+https://kubernetes.io/blog/2016/12/container-runtime-interface-cri-in-kubernetes/
 https://kubernetes.io/blog/2017/11/containerd-container-runtime-options-kubernetes/
+Rttps://kubernetes.io/blog/2017/11/containerd-container-runtime-options-kubernetes/
 https://xuxinkun.github.io/2017/12/12/docker-oci-runc-and-kubernetes/
 https://www.kubernetes.org.cn/1079.html
-https://jimmysong.io/posts/kubernetes-open-interfaces-cri-cni-csi/
