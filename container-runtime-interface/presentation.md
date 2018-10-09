@@ -173,7 +173,14 @@ minikube start \
 
 # Run Kubernetes on CRI-O 
 
-https://github.com/kubernetes-sigs/cri-o/blob/master/kubernetes.md
+[Kubespray](https://github.com/kubernetes-incubator/kubespray/blob/master/docs/cri-o.md)
+```
+kubeadm_enabled: true
+...
+container_manager: crio
+```
+
+[Full cluster](https://github.com/kubernetes-sigs/cri-o/blob/master/kubernetes.md)
 
 ```
 kubelet --container-runtime-endpoint=unix:///var/run/crio/crio.sock
