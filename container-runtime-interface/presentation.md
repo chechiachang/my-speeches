@@ -8,7 +8,7 @@ slidenumbers: true
 David Chang DevOps @ Mithril
 Back-End Developer, Kuberentes admin, DevOps
 
-![inline](../images/davidchang.jpg)
+![inline](../images/davidchang.jpg)![inline](../images/mithril.png)
 
 ---
 
