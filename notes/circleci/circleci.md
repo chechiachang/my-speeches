@@ -15,6 +15,12 @@ This article is about a collection of self-learned experiences to modify / debug
 6. Complete run: Uncomment commented code. Check the code with outside effects in case an incorrect code is deployed.
 7. Merge to master and retest.
 
+Run
+```
+circleci config validate
+```
+before each push
+
 # Best practice
 
 Commands and Scripts
@@ -25,3 +31,18 @@ Should be verbose.
 Environment Variables
 
 Scope of vars should be as small as possible. Know a variable is consumed by which command in which line.
+
+Container Lifecycle
+1. It takes about 10 second to generate new container. Make sure your work is more than the init cost.
+
+# Workflows
+
+Separete checkout, install, test, build, deployment
+
+# Cache
+
+Cache across workflows while workspace along with a single workflow. Cache persist across workflows. Cache is mapped by key to directory.
+
+Cache is immutable. That is, cache exists won't be overwriten by new cache with same key. Cache key should match cache lifecycle. When to create a new cache.
+- Source code and .git should mapper by {{ .Branch }}-{{ .Revision }}
+- Tools should mapper by v1-{{ .Branch }} with a valid default key: v1- so there is cache for first-time-build branches.
