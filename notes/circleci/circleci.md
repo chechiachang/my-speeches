@@ -46,3 +46,13 @@ Cache across workflows while workspace along with a single workflow. Cache persi
 Cache is immutable. That is, cache exists won't be overwriten by new cache with same key. Cache key should match cache lifecycle. When to create a new cache.
 - Source code and .git should mapper by {{ .Branch }}-{{ .Revision }}
 - Tools should mapper by v1-{{ .Branch }} with a valid default key: v1- so there is cache for first-time-build branches.
+
+
+# Minefields
+
+Watch out for ignore files if has file not found.
+- .gcloudignore
+- .gitignore
+- .dockerignore
+
+Check git log to find out what, how and who.
