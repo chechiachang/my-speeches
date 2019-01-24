@@ -39,6 +39,14 @@ Container Lifecycle
 
 Separete checkout, install, test, build, deployment
 
+### Filter
+
+Enable build by tag:
+
+filters:
+  tags:
+    only: /.*/
+
 # Cache
 
 Cache across workflows while workspace along with a single workflow. Cache persist across workflows. Cache is mapped by key to directory.
