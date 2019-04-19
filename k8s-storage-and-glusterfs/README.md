@@ -5,6 +5,10 @@ Kubernetes Storage and GlusterFS
 
 SDN x Cloud Native Meetup #2
 
+https://github.com/TGmeetup/TWcommunities/blob/master/communities/CNTUG.md#20180210
+
+國立臺灣科技大學資訊管理系/台科大資管學院 3F, MA316
+
 #  
 
 Docker Storage
